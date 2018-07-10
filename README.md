@@ -12,9 +12,22 @@
 
 - Make sure you have _npm_ installed globally
 - run `npm i`
+- Clone and install Recommended WP Repo
 - Setup .env
 - Setup WP Authentication/JWT
 - run `npm start`
+
+### Install Recommended WP Rep
+
+URL: https://github.com/SeaMonster-Studios/wordpress-headless-upstream
+
+Clone, and then run the script, `bash install.sh -d domain-of-live-site.com`
+
+### Recommended WP Plugins
+
+These are installed automatically when you use the Recommended WP Install
+
+https://github.com/SeaMonster-Studios/wordpress-headless-plugins
 
 ### .env
 
