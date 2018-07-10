@@ -1,0 +1,50 @@
+{
+  "name": "react-static-starter",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start:rs": "dotenv react-static start",
+    "build:rs": "react-static build",
+    "serve": "serve dist -p 3000",
+    "start:lambda": "netlify-lambda serve src/lambda",
+    "build:lambda": "netlify-lambda build src/lambda",
+    "start": "concurrently --kill-others-on-fail \"npm run start:lambda\" \"npm run start:rs\""
+  },
+  "dependencies": {
+    "axios": "^0.17.1",
+    "babel-eslint": "^8.2.5",
+    "babel-jest": "^22.4.4",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "dotenv": "^5.0.1",
+    "dotenv-cli": "^1.4.0",
+    "emotion": "^9.2.5",
+    "emotion-server": "^9.2.5",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-react": "^7.10.0",
+    "flow-bin": "^0.76.0",
+    "flow-typed": "^2.5.1",
+    "flow-webpack-plugin": "^1.2.0",
+    "he": "^1.1.1",
+    "jest": "^22.4.4",
+    "moment": "^2.22.2",
+    "netlify-lambda": "^0.4.0",
+    "raven-js": "^3.26.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "react-emotion": "^9.2.5",
+    "react-spring": "^5.4.0",
+    "react-static": "^5.9.7",
+    "react-static-routes": "^1.0.0",
+    "reset-css": "^4.0.1",
+    "to-case": "^2.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-react-tools": "^1.2.5",
+    "serve": "^6.5.8"
+  }
+}
