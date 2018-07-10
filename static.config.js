@@ -8,7 +8,7 @@ import { getRoutesWithData } from './src/config/routes'
 dotenv.config()
 
 export default {
-  // siteRoot: process.env.SITE_ROOT,
+  siteRoot: process.env.SITE_ROOT,
   getSiteData: async () => ({
     title: 'Site Title',
   }),
@@ -38,7 +38,6 @@ export default {
         flowArgs: ['--color=always'],
       }),
     ]
-    config.resolve.modulesDirectories = ['shared', 'node_modules']
     return config
   },
   devServer: {
