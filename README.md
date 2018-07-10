@@ -17,7 +17,7 @@
 - Setup WP Authentication/JWT
 - run `npm start`
 
-### Install Recommended WP Rep
+### Install Recommended WP Repo
 
 URL: https://github.com/SeaMonster-Studios/wordpress-headless-upstream
 
