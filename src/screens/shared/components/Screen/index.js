@@ -1,25 +1,26 @@
 // @flow
 import React from 'react'
 import { RouteData } from 'react-static'
+import { css } from 'emotion'
 //
 import { Header } from '../Header'
 import { Footer } from '../Footer'
 
-export function Screen(props: {
-  children: any => any,
-  css?: '', // Emotion css object
-  className?: string,
-}) {
-  const { css, children, className, ...attrs } = props
+export function Screen(props: { children: any => any }) {
+  const { children, ...attrs } = props
   return (
     <RouteData>
       {routeProps => (
         <div
-          className={`${css ? css : ''} ${className ? className : ''}`}
+          className={css({
+            minHeight: '100vh',
+            display: 'flex',
+            flexDirection: 'column',
+          })}
           {...attrs}
         >
           <Header routeProps={routeProps} />
-          <main>{children(routeProps)}</main>
+          <main className={css({ flexGrow: 2 })}>{children(routeProps)}</main>
           <Footer routeProps={routeProps} />
         </div>
       )}
