@@ -1,8 +1,8 @@
 import * as React from 'react'
 import { Router, Route } from 'react-static'
 import Routes from 'react-static-routes'
-import { ErrorBoundary } from './shared/ErrorBoundary'
-import { Styles } from './shared/Styles'
+import { ErrorBoundary } from './shared/components/ErrorBoundary'
+import { Styles } from './shared/components/Styles'
 import { Spring, animated } from 'react-spring'
 
 const AnimatedStyles = animated(Styles)

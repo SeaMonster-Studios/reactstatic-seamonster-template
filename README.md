@@ -53,3 +53,4 @@ More info on the JWT plugin here: https://wordpress.org/plugins/jwt-authenticati
 ## Tips
 
 - Use the `decode` function from the `he` library when rendering any HTML from WordPress. This will prevent `&amp;` from rendering, instead of `&`
+- For file structure, I suggest checking this out: https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346

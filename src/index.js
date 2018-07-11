@@ -5,9 +5,14 @@ import { AppContainer } from 'react-hot-loader'
 // Your top level component
 import App from './App'
 
-if (typeof document !== 'undefined') {
-  Raven.config('https://bed7643d5a044d36add1ebbe5bc2a531@sentry.io/290563', {
+if (
+  typeof document !== 'undefined' &&
+  typeof window !== 'undefined' &&
+  window.location.hostname !== 'localhost'
+) {
+  Raven.config(process.env.SENTRY_URL, {
     environment: 'production',
+    ignoreUrls: [/.*localhost.* /],
   }).install()
 }
 

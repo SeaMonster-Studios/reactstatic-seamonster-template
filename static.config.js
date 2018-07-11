@@ -15,6 +15,10 @@ export default {
   getRoutes: async () => [
     ...(await getRoutesWithData()),
     {
+      path: '/',
+      component: 'src/screens/Home',
+    },
+    {
       is404: true,
       component: 'src/screens/NotFound',
     },
