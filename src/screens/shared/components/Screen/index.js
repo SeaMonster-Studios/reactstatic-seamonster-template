@@ -2,6 +2,8 @@
 import React from 'react'
 import { RouteData } from 'react-static'
 //
+import { Header } from '../Header'
+import { Footer } from '../Footer'
 
 export function Screen(props: {
   children: any => any,
@@ -16,7 +18,9 @@ export function Screen(props: {
           className={`${css ? css : ''} ${className ? className : ''}`}
           {...attrs}
         >
-          {children(routeProps)}
+          <Header {...routeProps} />
+          <main>{children(routeProps)}</main>
+          <Footer {...routeProps} />
         </div>
       )}
     </RouteData>
