@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import { hot } from 'react-hot-loader'
 //
 import { Screen } from '../shared/components/Screen'
 
@@ -13,4 +14,4 @@ function RenderNotFound(props: any) {
   )
 }
 
-export default RenderNotFound
+export default hot(module)(RenderNotFound)

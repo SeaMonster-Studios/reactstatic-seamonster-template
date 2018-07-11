@@ -1,5 +1,6 @@
 // @flow
 import * as React from 'react'
+import { hot } from 'react-hot-loader'
 //
 import { Screen } from '../shared/components/Screen'
 
@@ -11,4 +12,4 @@ function RenderHome(props: any) {
   return <Screen>{screenProps => <Home {...props} {...screenProps} />}</Screen>
 }
 
-export default RenderHome
+export default hot(module)(RenderHome)
