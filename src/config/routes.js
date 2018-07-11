@@ -54,7 +54,7 @@ async function getPageRoutes({ api }) {
           // component: `src/screens/${template}`,
           component: `src/screens/NotFound`,
           getData: async () => ({
-            ...(await handlePageSpecificProps({ page, api })),
+            ...(await handleTemplateSpecificProps({ page, api })),
           }),
         }
       }
@@ -70,8 +70,8 @@ async function getPageRoutes({ api }) {
   }
 }
 
-async function handlePageSpecificProps({ page, api }) {
-  switch (page.slug) {
+async function handleTemplateSpecificProps({ page, api }) {
+  switch (page.template) {
     case 'contact': {
       return {
         ...page,
