@@ -18,9 +18,9 @@ export function Screen(props: {
           className={`${css ? css : ''} ${className ? className : ''}`}
           {...attrs}
         >
-          <Header {...routeProps} />
+          <Header routeProps={routeProps} />
           <main>{children(routeProps)}</main>
-          <Footer {...routeProps} />
+          <Footer routeProps={routeProps} />
         </div>
       )}
     </RouteData>
