@@ -4,14 +4,11 @@
 # security
 server/ssl/*.pem
 
-# testing
+# generated 
 /coverage
-
-# production
 /dist
-
-# development
 tmp
+netlify
 
 # misc
 .DS_Store
