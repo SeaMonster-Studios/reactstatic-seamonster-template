@@ -1,13 +1,11 @@
 [ignore]
+.*__snapshots__/.*
 <PROJECT_ROOT>/__tests__/.*
 <PROJECT_ROOT>/node_modules/config-chain/test/.*
+<PROJECT_ROOT>/node_modules/react-static/.history/*
 
 [include]
+<PROJECT_ROOT>/src/**
 
 [libs]
-
-[lints]
-
-[options]
-
-[strict]
+flow-typed

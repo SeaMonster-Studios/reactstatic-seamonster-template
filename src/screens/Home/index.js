@@ -1,15 +1,17 @@
 // @flow
 import * as React from 'react'
-import { hot } from 'react-hot-loader'
 //
 import { Screen } from '../shared/components/Screen'
+import { tRouteProps } from '../shared/types'
 
-function Home(props: any) {
+type tHome = any
+
+function Home(props: tHome & tRouteProps) {
   return <h1>Home Page</h1>
 }
 
-function RenderHome(props: any) {
-  return <Screen>{screenProps => <Home {...props} {...screenProps} />}</Screen>
+function RenderHome(props: tHome) {
+  return <Screen>{routeProps => <Home {...props} {...routeProps} />}</Screen>
 }
 
-export default hot(module)(RenderHome)
+export default RenderHome

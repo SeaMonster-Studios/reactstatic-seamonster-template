@@ -1,17 +1,29 @@
 // @flow
 import * as React from 'react'
-import { hot } from 'react-hot-loader'
 //
 import { Screen } from '../shared/components/Screen'
+import { className } from './style'
+import { tRouteProps } from '../shared/types'
 
-function NotFound(props: any) {
-  return <h1>404 Page</h1>
-}
+type tNotFound = any
 
-function RenderNotFound(props: any) {
+function NotFound(props: tRouteProps & tNotFound) {
   return (
-    <Screen>{screenProps => <NotFound {...props} {...screenProps} />}</Screen>
+    <div>
+      <div className="container">
+        <h1>404</h1>
+        <h2 className="h3">This is not the page you&rsquo;re looking for.</h2>
+      </div>
+    </div>
   )
 }
 
-export default hot(module)(RenderNotFound)
+function RenderNotFound(props: tNotFound) {
+  return (
+    <Screen css={className}>
+      {routeProps => <NotFound {...props} {...routeProps} />}
+    </Screen>
+  )
+}
+
+export default RenderNotFound

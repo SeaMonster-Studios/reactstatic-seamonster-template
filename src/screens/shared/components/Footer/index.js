@@ -1,8 +1,14 @@
 // @flow
 import React from 'react'
 //
+import { Wrapper } from './style'
+import { tRouteProps } from '../../types'
 
-export function Footer(props: { routeProps: {} }) {
+type tFooter = {
+  routeProps: tRouteProps,
+}
+
+export function Footer(props: tFooter) {
   const { routeProps, ...attrs } = props
-  return <footer {...attrs}>This is a footer</footer>
+  return <Wrapper {...attrs}>This is a footer</Wrapper>
 }

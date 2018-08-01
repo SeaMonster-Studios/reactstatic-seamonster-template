@@ -1,25 +1,24 @@
 import React, { Component } from 'react'
-import FlowWebpackPlugin from 'flow-webpack-plugin'
-import { renderStylesToString } from 'emotion-server'
 import dotenv from 'dotenv'
 //
-import { getRoutesWithData } from './src/config/routes'
+// import { getRoutesWithData } from './src/config/routes'
 
 dotenv.config()
 
 export default {
+  plugins: ['react-static-plugin-emotion'],
   siteRoot: process.env.SITE_ROOT,
   getSiteData: async () => ({
     title: 'Site Title',
   }),
   getRoutes: async () => [
-    ...(await getRoutesWithData()),
+    // ...(await getRoutesWithData()),
     {
       path: '/',
       component: 'src/screens/Home',
     },
     {
-      is404: true,
+      path: '404',
       component: 'src/screens/NotFound',
     },
   ],
@@ -36,13 +35,6 @@ export default {
         loader: 'babel-loader',
       },
     })
-    config.plugins = [
-      ...config.plugins,
-      new FlowWebpackPlugin({
-        flowArgs: ['--color=always'],
-      }),
-    ]
-    return config
   },
   devServer: {
     proxy: {
@@ -52,7 +44,6 @@ export default {
       },
     },
   },
-  renderToHtml: (render, Comp) => renderStylesToString(render(<Comp />)),
   Document: class CustomHtml extends Component<{
     Html: any,
     Head: any,
