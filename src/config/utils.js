@@ -62,6 +62,85 @@ export async function getGravityForm(authedApiInstance, id) {
   }
 }
 
+export async function handleSlugSpecificProps({ page, api }) {
+  switch (page.slug) {
+    case 'about': {
+      return {
+        people: await getPeople(api),
+      }
+    }
+    default:
+      return {}
+  }
+}
+
+export async function handleTemplateSpecificProps({ page, api }) {
+  switch (page.template) {
+    // case 'contact': {
+    //   return {
+    //     ...page,
+    //     form: await getGravityForm(api.authedInstance, 1),
+    //   }
+    // }
+    default:
+      return {}
+  }
+}
+
+export function buildPagesWithChildren(pages, newPages = [], orphans = []) {
+  pages.map(page => {
+    if (page.path === 'a-place-to-belong') {
+      // console.log('a-place-to-belong', page.id)
+    }
+
+    if (page.path === 'community-groups') {
+      // console.log('community-groups', page.id)
+    }
+
+    if (page.parent > 0) {
+      const response = getPageWithAllDecendents(newPages, page)
+      response.found ? (newPages = response.newPages) : orphans.push(page)
+    } else {
+      newPages.push(page)
+    }
+  })
+
+  newPages = findParentsOfOrphans(newPages, orphans) // orphans occur when a child page is created before it's parent page within WordPress
+
+  return newPages
+}
+
+function getPageWithAllDecendents(newPages, page, found = false) {
+  newPages.map(parent => {
+    if (parent.id === page.parent) {
+      found = true
+      parent.children.push(page)
+    } else {
+      return getPageWithAllDecendents(parent.children, page, found)
+    }
+  })
+  return { newPages, found }
+}
+
+function findParentsOfOrphans(newPages, orphans, retries = 5) {
+  if (retries > 0) {
+    orphans.map((page, i) => {
+      const { newPages: pages, found } = getPageWithAllDecendents(
+        newPages,
+        page,
+      )
+      if (found) {
+        newPages = pages
+        orphans.splice(i, 1)
+      } else {
+        retries -= 1
+      }
+    })
+    if (orphans.length) findParentsOfOrphans(newPages, orphans, retries)
+  }
+  return newPages
+}
+
 export function cleanWPJson(post) {
   // Remove WP data we're not using, can always add later.
   // We don't want to add route data that isn't used

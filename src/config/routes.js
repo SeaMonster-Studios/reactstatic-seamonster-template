@@ -3,9 +3,11 @@ import dotenv from 'dotenv'
 //
 import {
   cleanTemplateNameOf,
-  getAuthedApiInstance,
-  getGravityForm,
+  // getAuthedApiInstance,
+  buildPagesWithChildren,
   cleanWPJson,
+  handleSlugSpecificProps,
+  handleTemplateSpecificProps,
 } from './utils'
 
 dotenv.config()
@@ -18,7 +20,7 @@ export async function getAPIRoutes() {
     wp: `${base}/wp/v2`,
     acf: `${base}/acf/v3`,
     sms: `${base}/sms/v1`,
-    authedInstance: await getAuthedApiInstance(),
+    // authedInstance: await getAuthedApiInstance(),
   }
 }
 
@@ -32,34 +34,41 @@ export async function getRoutesWithData() {
 
 async function getPageRoutes({ api }) {
   try {
-    const { data: pages } = await axios.get(`${api.wp}/pages`)
+    const { data } = await axios.get(`${api.wp}/pages?per_page=100`)
 
-    return pages.map(page => {
-      if (page.status === 'publish') {
-        const template =
-          page.template === ''
-            ? 'Page'
-            : (() => cleanTemplateNameOf(page.template))()
+    let updatedData = data
+      .reverse()
+      .map(item => {
+        if (item.status === 'publish') {
+          const page = {
+            ...cleanWPJson(item),
+            template:
+              item.template === ''
+                ? 'Page'
+                : (() => cleanTemplateNameOf(item.template))(),
+            api,
+            title: item.title.rendered,
+            content: item.content.rendered,
+          }
 
-        page.title = page.title.rendered
-        page.content = page.content.rendered
-        page.template = template
-
-        page = cleanWPJson(page)
-
-        const slug = page.slug === 'home' ? '/' : `/${page.slug}`
-
-        return {
-          path: slug,
-          // component: `src/screens/${template}`,
-          component: `src/screens/NotFound`,
-          getData: async () => ({
-            ...(await handleTemplateSpecificProps({ page, api })),
-          }),
+          return {
+            path: item.slug === 'home' ? '/' : item.slug,
+            component: `src/screens/${page.template}`,
+            children: [],
+            id: page.id,
+            parent: page.parent,
+            getData: async () => ({
+              ...page,
+              ...(await handleSlugSpecificProps({ page, api })),
+              ...(await handleTemplateSpecificProps({ page, api })),
+            }),
+          }
         }
-      }
-      return {}
-    })
+        return undefined
+      })
+      .filter(item => item !== undefined)
+
+    return buildPagesWithChildren(updatedData)
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(
@@ -67,18 +76,5 @@ async function getPageRoutes({ api }) {
       err.response ? err.response : err,
     )
     return err
-  }
-}
-
-async function handleTemplateSpecificProps({ page, api }) {
-  switch (page.template) {
-    case 'contact': {
-      return {
-        ...page,
-        form: await getGravityForm(api.authedInstance, 1),
-      }
-    }
-    default:
-      return page
   }
 }
