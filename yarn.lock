@@ -782,6 +782,14 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@bit/seamonster-studios.react.components.error-boundary@^1.0.0":
+  version "1.0.0"
+  resolved "https://node.bitsrc.io/seamonster-studios.react.components.error-boundary/-/seamonster-studios.react.components.error-boundary-1.0.0.tgz#b139512a6897e296f122519b83c8af6cc401ff2c"
+  dependencies:
+    prop-types "^15.6.2"
+    raven-js "^3.26.4"
+    react-emotion "^9.2.5"
+
 "@emotion/babel-utils@^0.6.4":
   version "0.6.9"
   resolved "https://registry.yarnpkg.com/@emotion/babel-utils/-/babel-utils-0.6.9.tgz#bb074fadad65c443a575d3379488415fd194fc75"
@@ -7964,7 +7972,7 @@ range-parser@1.2.0, range-parser@^1.0.3, range-parser@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/range-parser/-/range-parser-1.2.0.tgz#f49be6b487894ddc40dcc94a322f611092e00d5e"
 
-raven-js@^3.26.3:
+raven-js@^3.26.3, raven-js@^3.26.4:
   version "3.27.0"
   resolved "https://registry.yarnpkg.com/raven-js/-/raven-js-3.27.0.tgz#9f47c03e17933ce756e189f3669d49c441c1ba6e"
 
