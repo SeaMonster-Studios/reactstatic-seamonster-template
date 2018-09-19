@@ -1,0 +1,5 @@
+{
+  "env": {},
+  "componentsDefaultDirectory": "src/{namespace}/{name}",
+  "packageManager": "yarn"
+}

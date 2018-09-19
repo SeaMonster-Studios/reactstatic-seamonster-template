@@ -62,10 +62,7 @@ export default {
               name="viewport"
               content="width=device-width, initial-scale=1"
             />
-            <script
-              src="https://cdn.ravenjs.com/3.22.3/raven.min.js"
-              crossOrigin="anonymous"
-            />
+            {/* PUT SENTRY SCRIPT TAG HERE*/}
             {renderMeta.styleTags}
           </Head>
           <Body>{children}</Body>

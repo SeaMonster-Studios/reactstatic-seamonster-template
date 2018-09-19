@@ -1,6 +1,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import { AppContainer } from "react-hot-loader"
+import * as Sentry from '@sentry/browser'
 
 // Your top level component
 import App from "./App"
@@ -10,10 +11,11 @@ if (
   typeof window !== "undefined" &&
   window.location.hostname !== "localhost"
 ) {
-  Raven.config(process.env.SENTRY_URL, {
+  Sentry.init({
+    dsn: process.env.SENTRY_DSN,
     environment: "production",
     ignoreUrls: [/.*localhost.* /],
-  }).install()
+  })
 }
 
 // Export your top level component (for static rendering)
