@@ -16,13 +16,13 @@ injectGlobal(`
   @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
 
   body {
-    background: ${color.rgb.white[0]};
+    background: ${color.white.rgb[0]};
     font-family: ${font.family.sans};
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     
     &, a {
-      color: ${color.rgb.gray[1]};
+      color: ${color.gray.rgb[0]};
       transition: color 0.5s ease, background 0.5s ease, border 0.5s ease, translate 0.5s ease, opacity 0.5s ease;
     }
 
@@ -58,7 +58,7 @@ injectGlobal(`
   em { font-style: italic; }
 
   #root main {
-    background ${color.rgb.white[0]};
+    background ${color.white.rgb[0]};
   }
 
   ${typography};
