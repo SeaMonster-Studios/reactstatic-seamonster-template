@@ -34,7 +34,7 @@ https://github.com/SeaMonster-Studios/wordpress-headless-plugins
 - API_USER: This needs to be an admin level username in wordpress
 - API_PASSWORD: The password to your API_USER
 - API_URL: Example: https://my-awesome-wp-site.com/wp-json
-- SENTRY_URL: Used for debugging, something you get when you setup a new sentry instance.
+- SENTRY_DSN: Used for debugging, something you get when you setup a new sentry instance.
 - SITE_ROOT: Used by react static for site map generation, etc. Use whatever the domain is the site is currently running on.
   - Local example: https://localhost.com:3000/
   - Live Example: https://my-awesome-wp-site.com/
