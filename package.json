@@ -1,6 +1,6 @@
 {
   "name": "reactstatic-wordpress-template",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -53,6 +53,7 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.5",
+    "react-hot-loader": "^4.3.8",
     "react-spring": "^5.4.0",
     "react-static": "^6.0.0-beta.21",
     "react-static-plugin-emotion": "^1.0.6",

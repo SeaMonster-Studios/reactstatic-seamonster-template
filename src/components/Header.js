@@ -1,8 +1,10 @@
 // @flow
 import React from 'react'
-//
-import { Wrapper } from './style'
-import { tRouteProps } from '../../types'
+import { tRouteProps } from '../types'
+import styled from 'react-emotion'
+
+export const Wrapper = styled('header')``
+
 
 type tHeader = {
   routeProps: tRouteProps,
