@@ -3,7 +3,7 @@ import * as React from "react"
 import { Screen } from "../components/Screen"
 import { css } from "react-emotion"
 
-class NotFound extends React.PureComponent<{}> {
+export default class NotFound extends React.PureComponent<{}> {
   render() {
     return (
       <Screen
@@ -36,4 +36,3 @@ class NotFound extends React.PureComponent<{}> {
   }
 }
 
-export default NotFound

@@ -26,9 +26,10 @@
     "@babel/plugin-proposal-json-strings": "^7.0.0-beta.55",
     "@babel/plugin-syntax-import-meta": "^7.0.0-beta.55",
     "@babel/preset-env": "^7.0.0-beta.54",
-    "@babel/preset-flow": "^7.0.0-beta.54",
+    "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0-beta.54",
     "@bit/seamonster-studios.react.components.error-boundary": "^1.0.0",
+    "@bit/seamonster-studios.react.utils.styles": "^0.0.2",
     "axios": "^0.17.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.5",
@@ -43,7 +44,7 @@
     "eslint-plugin-babel": "^4.1.2",
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-react": "^7.10.0",
-    "flow-bin": "^0.76.0",
+    "flow-bin": "^0.81.0",
     "flow-typed": "^2.5.1",
     "flow-watch": "^1.1.3",
     "he": "^1.1.1",
@@ -55,7 +56,7 @@
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.5",
     "react-hot-loader": "^4.3.8",
-    "react-spring": "^5.4.0",
+    "react-spring": "^5.8.0",
     "react-static": "^6.0.0-beta.21",
     "react-static-plugin-emotion": "^1.0.6",
     "react-static-routes": "^1.0.0",
@@ -66,6 +67,7 @@
   "devDependencies": {
     "@babel/preset-flow": "^7.0.0",
     "eslint-config-react-tools": "^1.2.5",
+    "flow": "^0.2.3",
     "serve": "^9.4.0"
   }
 }
