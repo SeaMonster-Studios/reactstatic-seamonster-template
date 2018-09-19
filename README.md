@@ -10,12 +10,12 @@
 
 ## Setup
 
-- Make sure you have _npm_ installed globally
-- run `npm i`
+- Make sure you have _yarn_ installed globally
+- run `yarn`
 - Clone and install Recommended WP Repo
 - Setup .env
 - Setup WP Authentication/JWT
-- run `npm start`
+- run `yarn start`
 
 ### Install Recommended WP Repo
 
