@@ -1,16 +1,19 @@
 // @flow
 import * as React from "react"
-import { Screen } from "../components/Screen";
-import { tRouteProps } from "../types";
+import { css } from "react-emotion"
+import { tRouteProps } from "../types"
+import { Screen } from "../components/Screen"
 
 type tHome = {}
 
-function Home(props: tHome & tRouteProps) {
-  return <h1>Home Page</h1>
+export default class Home extends React.PureComponent<tHome> {
+  render() {
+    return (
+      <Screen>
+        {(routeProps: tRouteProps) => (
+          <div className={css``}>This is the home screen</div>
+        )}
+      </Screen>
+    )
+  }
 }
-
-function RenderHome(props: tHome) {
-  return <Screen>{(routeProps) => <Home {...props} {...routeProps} />}</Screen>
-}
-
-export default RenderHome

@@ -1,25 +1,25 @@
 //
-import { color } from './'
+import { color } from "./"
 
 export const button = (() => {
   const c = {
     // c for common
-    hoverEffect: 'default',
+    hoverEffect: "default",
     textColor: color.white[0],
     inverse: false,
-    inverseStyle: 'default',
+    inverseStyle: "default",
     styles: {
-      transition: 'color 0.5s ease, background 0.5s ease',
+      transition: "color 0.5s ease, background 0.5s ease",
       fontSize: 16,
-      padding: '12px 30px',
+      padding: "12px 30px",
       fontWeight: 600,
-      border: 'none',
+      border: "none",
 
-      '&:hover, &:focus': {
-        outline: 'none',
+      "&:hover, &:focus": {
+        outline: "none",
       },
 
-      'svg + span': {
+      "svg + span": {
         paddingLeft: 5,
       },
     },

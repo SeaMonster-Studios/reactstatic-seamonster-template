@@ -1,6 +1,5 @@
-import axios from 'axios'
-import dotenv from 'dotenv'
-//
+import axios from "axios"
+import dotenv from "dotenv"
 import {
   cleanTemplateNameOf,
   // getAuthedApiInstance,
@@ -8,7 +7,7 @@ import {
   cleanWPJson,
   handleSlugSpecificProps,
   handleTemplateSpecificProps,
-} from './utils'
+} from "./utils"
 
 dotenv.config()
 
@@ -38,13 +37,13 @@ async function getPageRoutes({ api }) {
 
     let updatedData = data
       .reverse()
-      .map(item => {
-        if (item.status === 'publish') {
+      .map((item) => {
+        if (item.status === "publish") {
           const page = {
             ...cleanWPJson(item),
             template:
-              item.template === ''
-                ? 'Page'
+              item.template === ""
+                ? "Page"
                 : (() => cleanTemplateNameOf(item.template))(),
             api,
             title: item.title.rendered,
@@ -52,7 +51,7 @@ async function getPageRoutes({ api }) {
           }
 
           return {
-            path: item.slug === 'home' ? '/' : item.slug,
+            path: item.slug === "home" ? "/" : item.slug,
             component: `src/screens/${page.template}`,
             children: [],
             id: page.id,
@@ -66,13 +65,13 @@ async function getPageRoutes({ api }) {
         }
         return undefined
       })
-      .filter(item => item !== undefined)
+      .filter((item) => item !== undefined)
 
     return buildPagesWithChildren(updatedData)
   } catch (err) {
     // eslint-disable-next-line no-console
     console.error(
-      'There was a problem in getPageRoutes, Error: ',
+      "There was a problem in getPageRoutes, Error: ",
       err.response ? err.response : err,
     )
     return err

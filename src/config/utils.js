@@ -1,10 +1,10 @@
-import { pascal } from 'to-case'
-import axios from 'axios'
+import { pascal } from "to-case"
+import axios from "axios"
 
 export function removeKeyNamespace(object, namespace) {
   const objectFiltered = {}
 
-  Object.keys(object).map(key => {
+  Object.keys(object).map((key) => {
     const keySplit = key.split(namespace)
     const newKey = keySplit.length > 1 ? keySplit[1] : key
 
@@ -16,9 +16,9 @@ export function removeKeyNamespace(object, namespace) {
 }
 
 export function cleanTemplateNameOf(templateName) {
-  if (templateName === '') return ''
-  const templateFiltered = templateName.split('.php')[0]
-  return pascal(templateFiltered.split('templates/')[1])
+  if (templateName === "") return ""
+  const templateFiltered = templateName.split(".php")[0]
+  return pascal(templateFiltered.split("templates/")[1])
 }
 
 export async function getAuthedApiInstance() {
@@ -64,7 +64,7 @@ export async function getGravityForm(authedApiInstance, id) {
 
 export async function handleSlugSpecificProps({ page, api }) {
   switch (page.slug) {
-    case 'about': {
+    case "about": {
       return {
         people: await getPeople(api),
       }
@@ -88,12 +88,12 @@ export async function handleTemplateSpecificProps({ page, api }) {
 }
 
 export function buildPagesWithChildren(pages, newPages = [], orphans = []) {
-  pages.map(page => {
-    if (page.path === 'a-place-to-belong') {
+  pages.map((page) => {
+    if (page.path === "a-place-to-belong") {
       // console.log('a-place-to-belong', page.id)
     }
 
-    if (page.path === 'community-groups') {
+    if (page.path === "community-groups") {
       // console.log('community-groups', page.id)
     }
 
@@ -111,7 +111,7 @@ export function buildPagesWithChildren(pages, newPages = [], orphans = []) {
 }
 
 function getPageWithAllDecendents(newPages, page, found = false) {
-  newPages.map(parent => {
+  newPages.map((parent) => {
     if (parent.id === page.parent) {
       found = true
       parent.children.push(page)
@@ -145,19 +145,19 @@ export function cleanWPJson(post) {
   // Remove WP data we're not using, can always add later.
   // We don't want to add route data that isn't used
   const removeProperties = [
-    'author',
-    'comment_status',
-    'date',
-    'guid',
-    'history',
-    'link',
-    'menu_order',
-    'modified',
-    'modified_gmt',
-    'parent',
-    'ping_status',
-    'type',
-    '_links',
+    "author",
+    "comment_status",
+    "date",
+    "guid",
+    "history",
+    "link",
+    "menu_order",
+    "modified",
+    "modified_gmt",
+    "parent",
+    "ping_status",
+    "type",
+    "_links",
   ]
 
   for (let i = 0; i <= removeProperties.length; i += 1) {
@@ -165,7 +165,7 @@ export function cleanWPJson(post) {
     if (property && property in post) delete post[property]
   }
 
-  if ('acf' in post) {
+  if ("acf" in post) {
     post = {
       ...post,
       ...post.acf,

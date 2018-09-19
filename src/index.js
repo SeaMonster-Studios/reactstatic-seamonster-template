@@ -1,17 +1,17 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { AppContainer } from 'react-hot-loader'
+import React from "react"
+import ReactDOM from "react-dom"
+import { AppContainer } from "react-hot-loader"
 
 // Your top level component
-import App from './App'
+import App from "./App"
 
 if (
-  typeof document !== 'undefined' &&
-  typeof window !== 'undefined' &&
-  window.location.hostname !== 'localhost'
+  typeof document !== "undefined" &&
+  typeof window !== "undefined" &&
+  window.location.hostname !== "localhost"
 ) {
   Raven.config(process.env.SENTRY_URL, {
-    environment: 'production',
+    environment: "production",
     ignoreUrls: [/.*localhost.* /],
   }).install()
 }
@@ -20,13 +20,13 @@ if (
 export default App
 
 // Render your app
-if (typeof document !== 'undefined') {
-  const render = Comp => {
+if (typeof document !== "undefined") {
+  const render = (Comp) => {
     ReactDOM.hydrate(
       <AppContainer>
         <Comp />
       </AppContainer>,
-      document.getElementById('root'),
+      document.getElementById("root"),
     )
   }
 
@@ -35,8 +35,8 @@ if (typeof document !== 'undefined') {
 
   // Hot Module Replacement
   if (module.hot) {
-    module.hot.accept('./App', () => {
-      render(require('./App').default)
+    module.hot.accept("./App", () => {
+      render(require("./App").default)
     })
   }
 }

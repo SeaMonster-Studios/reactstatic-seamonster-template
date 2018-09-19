@@ -1,6 +1,6 @@
 /* eslint-disable func-names, space-before-function-paren */
-import axios from 'axios'
-import dotenv from 'dotenv'
+import axios from "axios"
+import dotenv from "dotenv"
 
 dotenv.config()
 
@@ -28,7 +28,7 @@ exports.handler = function(event, context, callback) {
         body: JSON.stringify(confirmation_message),
       })
     })
-    .catch(error => {
+    .catch((error) => {
       return callback({
         ...error,
         statusCode: 500,

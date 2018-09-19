@@ -1,8 +1,8 @@
 // @flow
-import * as React from 'react'
-import Raven from 'raven-js'
+import * as React from "react"
+import Raven from "raven-js"
 //
-import Styled from './index.style'
+import Styled from "./index.style"
 
 export class ErrorBoundary extends React.Component<
   {
@@ -23,17 +23,17 @@ export class ErrorBoundary extends React.Component<
     })
 
     if (
-      process.env.NODE_ENV !== 'development' &&
-      typeof document !== 'undefined' &&
-      error.message != 'IDontExist is not defined'
+      process.env.NODE_ENV !== "development" &&
+      typeof document !== "undefined" &&
+      error.message != "IDontExist is not defined"
     ) {
       /* eslint-disable-next-line no-console */
-      console.log('Errors sent to Raven', error, info)
+      console.log("Errors sent to Raven", error, info)
       Raven.captureException(error, { extra: info })
     } else {
       /* eslint-disable-next-line no-console */
       console.error(
-        'Error caught in Error ErrorBoundary. This will reported to Sentry when not in development.',
+        "Error caught in Error ErrorBoundary. This will reported to Sentry when not in development.",
       )
     }
   }
@@ -63,7 +63,7 @@ export class ErrorBoundary extends React.Component<
 }
 
 const ReportForm = () =>
-  process.env.NODE_ENV !== 'development' && typeof document !== 'undefined' ? (
+  process.env.NODE_ENV !== "development" && typeof document !== "undefined" ? (
     <Form />
   ) : (
     <span />
@@ -71,7 +71,7 @@ const ReportForm = () =>
 
 const Form = () => (
   <p data-testid="component-error-boundary-form">
-    This error has been reported to our development team. Please{' '}
+    This error has been reported to our development team. Please{" "}
     <button onClick={() => Raven.lastEventId() && Raven.showReportDialog()}>
       click here to fill out a report.
     </button>
