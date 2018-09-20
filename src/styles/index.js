@@ -22,7 +22,7 @@ injectGlobal(`
     -moz-osx-font-smoothing: grayscale;
     
     &, a {
-      color: ${color.gray.rgb[0]};
+      color: ${color.black.rgb[0]};
       transition: color 0.5s ease, background 0.5s ease, border 0.5s ease, translate 0.5s ease, opacity 0.5s ease;
     }
 

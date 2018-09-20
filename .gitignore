@@ -1,22 +1,26 @@
 # dependencies
-/node_modules
+node_modules
 
 # security
 server/ssl/*.pem
 
-# generated 
-/coverage
-/dist
+# generated
+coverage
+dist
 tmp
 netlify
+.docz
+.idea
 
 # misc
 .DS_Store
 .env
 
-# dev
-.idea
-
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# .bit
+src/**/LICENSE
+src/**/package.json
+src/**/yarn.lock

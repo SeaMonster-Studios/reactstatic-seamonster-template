@@ -1,6 +1,6 @@
 {
   "name": "reactstatic-wordpress-template",
-  "version": "2.1.0",
+  "version": "3.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -11,13 +11,32 @@
     "build:lambda": "netlify-lambda build src/lambda",
     "start": "concurrently --kill-others-on-fail \"npm run start:lambda\" \"npm run start:rs\"",
     "typecheck": "flow-watch",
-    "test": "jest --watch"
+    "test": "jest --watch",
+    "export": "bit tag --all && bit export seamonster-studios.react",
+    "include": "yarn run include:components && yarn run include:utils",
+    "include:components": "bit add src/components/* -t 'src/__tests__/{PARENT}.spec.js'",
+    "include:utils": "bit add src/utils/* -t 'src/__tests__/{PARENT}.spec.js'",
+    "add:component": "node package.sms.bit.js add components",
+    "add:util": "node package.sms.bit.js add utils",
+    "import:component": "node package.sms.bit.js import components",
+    "import:util": "node package.sms.bit.js import utils"
   },
   "prettier": {
     "semi": false,
     "trailingComma": "all",
     "bracketSpacing": true,
     "arrowParens": "always"
+  },
+  "quokka": {
+    "babel": true,
+    "plugins": [
+      "jsdom-quokka-plugin"
+    ],
+    "env": {
+      "params": {
+        "env": "BABEL_ENV=test"
+      }
+    }
   },
   "dependencies": {
     "@babel/core": "^7.0.0",
@@ -28,8 +47,9 @@
     "@babel/preset-env": "^7.0.0-beta.54",
     "@babel/preset-flow": "^7.0.0",
     "@babel/preset-react": "^7.0.0-beta.54",
-    "@bit/seamonster-studios.react.components.error-boundary": "^1.0.2",
+    "@bit/seamonster-studios.react.components.error-boundary": "^1.0.4",
     "@bit/seamonster-studios.react.utils.styles": "^0.0.2",
+    "@sentry/browser": "^4.0.2",
     "axios": "^0.17.1",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^8.2.5",
@@ -51,6 +71,7 @@
     "jest": "^22.4.4",
     "moment": "^2.22.2",
     "netlify-lambda": "^0.4.0",
+    "raven-js": "^3.26.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-emotion": "^9.2.5",
@@ -68,6 +89,7 @@
     "eslint": "^5.6.0",
     "eslint-config-react-tools": "^1.2.5",
     "flow": "^0.2.3",
+    "jsdom-quokka-plugin": "^1.0.13",
     "serve": "^9.4.0"
   }
 }
