@@ -39,11 +39,18 @@
 First off, you can check out the docs [here](https://docs.bitsrc.io/). We've abstracted some of this for brevity.
 
 #### Add component or util to your project (like any other npm dependency)
+Components:
 `yarn run add:component <component-name>`
+Utils:
 `yarn run add:tuil <util-name>`
 
 #### Import component or util (so you can modify it per the project)
+Components
+
 `yarn run import:component <component-name>`
+
+Utils
+
 `yarn run import:tuil <util-name>`
 
 Note that when you do this, you're project will start using the compiled (dist) version of the component without changing any of your import statements. If you want to make changes you change the source file. Then either run `bit build`, or change your import statments to import the source file instead of the dist file.
