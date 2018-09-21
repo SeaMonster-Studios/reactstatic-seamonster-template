@@ -154,7 +154,6 @@ export function cleanWPJson(post) {
     "menu_order",
     "modified",
     "modified_gmt",
-    "parent",
     "ping_status",
     "type",
     "_links",
