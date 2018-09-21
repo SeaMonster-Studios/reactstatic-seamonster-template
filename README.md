@@ -1,5 +1,9 @@
 # React-Static + SMS Headless WP
 
+## Backend (SeaMonster Studios Only)
+- Repo: https://github.com/SeaMonster-Studios/wordpress-headless-starter-cloudways
+- Application to clone: https://platform.cloudways.com/apps/615270/setting
+
 ## Features
 
 - React Static
@@ -13,44 +17,33 @@
 - Make sure you have _yarn_ installed globally
 - run `yarn`
 - Clone and install Recommended WP Repo
-- Setup .env
-- Setup WP Authentication/JWT
+- Add .env variables
 - run `yarn start`
-
-### Install Recommended WP Repo
-
-URL: https://github.com/SeaMonster-Studios/wordpress-headless-upstream
-
-Clone, and then run the script, `bash install.sh -d domain-of-live-site.com`
-
-### Recommended WP Plugins
-
-These are installed automatically when you use the Recommended WP Install
-
-https://github.com/SeaMonster-Studios/wordpress-headless-plugins
 
 ### .env
 
 - API_USER: This needs to be an admin level username in wordpress
 - API_PASSWORD: The password to your API_USER
 - API_URL: Example: https://my-awesome-wp-site.com/wp-json
-- SENTRY_DSN: Used for debugging, something you get when you setup a new sentry instance.
+- SENTRY_DSN: Log into https://sentry.io/ > Create a project (React) > Go to project settings > Go to "Client Keys (DSN)" in the left navigation
 - SITE_ROOT: Used by react static for site map generation, etc. Use whatever the domain is the site is currently running on.
   - Local example: https://localhost.com:3000/
   - Live Example: https://my-awesome-wp-site.com/
+  
+## SeaMonster Studios React Components and Utils
+- Bit: https://bitsrc.io/seamonster-studios/react 
+- Git repo: https://github.com/SeaMonster-Studios/react-components
 
-### WP Authentication/JWT
+### Using Bit with custom CLI commands
 
-Add the following items to your `wp-config.php` file:
+First off, you can check out the docs [here](https://docs.bitsrc.io/). We've abstracted some of this for brevity.
 
-- define('JWT_AUTH_SECRET_KEY', 'SECURE_STRING_HERE');
-- define('JWT_AUTH_CORS_ENABLE', true);
+#### Add component or util to your project (like any other npm dependency)
+`yarn run add:component <component-name>`
+`yarn run add:tuil <util-name>`
 
-For the SECRET_KEY, you can use a string from here https://api.wordpress.org/secret-key/1.1/salt/
+#### Import component or util (so you can modify it per the project)
+`yarn run import:component <component-name>`
+`yarn run import:tuil <util-name>`
 
-More info on the JWT plugin here: https://wordpress.org/plugins/jwt-authentication-for-wp-rest-api/
-
-## Tips
-
-- Use the `decode` function from the `he` library when rendering any HTML from WordPress. This will prevent `&amp;` from rendering, instead of `&`
-- For file structure, I suggest checking this out: https://gist.github.com/ryanflorence/daafb1e3cb8ad740b346
+Note that when you do this, you're project will start using the compiled (dist) version of the component without changing any of your import statements. If you want to make changes you change the source file. Then either run `bit build`, or change your import statments to import the source file instead of the dist file.
