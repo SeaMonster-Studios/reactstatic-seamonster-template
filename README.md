@@ -48,11 +48,11 @@ Utils:
 `yarn run add:tuil <util-name>`
 
 #### Import component or util (so you can modify it per the project)
-Components
+Components:
 
 `yarn run import:component <component-name>`
 
-Utils
+Utils:
 
 `yarn run import:tuil <util-name>`
 
