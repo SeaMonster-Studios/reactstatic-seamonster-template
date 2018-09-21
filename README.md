@@ -36,7 +36,7 @@
 
 ### Using Bit with custom CLI commands
 
-First off, you can check out the docs [here](https://docs.bitsrc.io/). We've abstracted some of this for brevity.
+First off, you can check out the docs [here](https://docs.bitsrc.io/). We've abstracted some of the commands here for brevity. When using the seamonster-studios/react bit scope.
 
 #### Add component or util to your project (like any other npm dependency)
 Components:
