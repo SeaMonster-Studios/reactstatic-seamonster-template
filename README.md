@@ -40,8 +40,11 @@ First off, you can check out the docs [here](https://docs.bitsrc.io/). We've abs
 
 #### Add component or util to your project (like any other npm dependency)
 Components:
+
 `yarn run add:component <component-name>`
+
 Utils:
+
 `yarn run add:tuil <util-name>`
 
 #### Import component or util (so you can modify it per the project)
