@@ -24,3 +24,4 @@ yarn-error.log*
 src/**/LICENSE
 src/**/package.json
 src/**/yarn.lock
+.dependencies
