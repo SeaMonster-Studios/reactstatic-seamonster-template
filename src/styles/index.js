@@ -4,16 +4,8 @@ import { font, color } from "./variables"
 import { typography } from "./typography"
 
 injectGlobal(`
-  @font-face {
-    font-family: 'ernest_and_emily_slantedRg';
-    src: url('/fonts/nicky_laatz__-_ernest_and_emily_slanted-webfont.woff2')
-        format('woff2'),
-      url('/fonts/nicky_laatz__-_ernest_and_emily_slanted-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-  }
-
-  @import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
+    
+  * { box-sizing: border-box; }
 
   body {
     background: ${color.white.rgb[0]};
