@@ -1,5 +1,9 @@
 {
-  "env": {},
-  "componentsDefaultDirectory": "src/{namespace}/{name}",
-  "packageManager": "yarn"
+    "env": {
+        "compiler": "bit.envs/compilers/react@0.0.14"
+    },
+    "dependencies": {},
+    "componentsDefaultDirectory": "src/bit/{namespace}/{name}",
+    "saveDependenciesAsComponents": "true",
+    "packageManager": "yarn"
 }
