@@ -1,24 +1,63 @@
 #!/usr/bin/env node
 /* eslint-disable no-console */
-const childProcess = require('child_process')
+const childProcess = require("child_process")
 
-const command = process.argv[2]
-const scope = process.argv[3]
-const item = process.argv[4]
+const [
+  nodeBinPath,
+  thisFilePath,
+  command,
+  scope,
+  item,
+  ...rawOptions
+] = process.argv
 
-switch(command) {
-  case 'add':
-    childProcess.exec(`yarn add @bit/seamonster-studios.react.${scope}.${item}`, error => {
+const options =
+  rawOptions && rawOptions.length > 0
+    ? rawOptions.reduce((acc, option) => {
+        acc += `${option} `
+        return acc
+      }, "")
+    : ""
+
+switch (command) {
+  case "yarn-add":
+    childProcess.exec(
+      `yarn add @bit/seamonster-studios.react.${scope}.${item} ${options}`,
+      (error) => {
+        error ? console.error(error) : console.log("success")
+      },
+    )
+    break
+  case "bit-add":
+    childProcess.exec(
+      `bit add src/${scope}/${item} -t 'src/__tests__/{PARENT}.spec.js' ${options}`,
+      (error) => {
+        error ? console.error(error) : console.log("success")
+      },
+    )
+    break
+  case "tag":
+    childProcess.exec(`bit tag ${scope}/${item}`, (error) => {
       error ? console.error(error) : console.log("success")
     })
     break
-  case 'import':
-    childProcess.exec(`bit import seamonster-studios.react/${scope}/${item}`, error => {
-      error ? console.error(error) : console.log("success")
-    })
+  case "import":
+    childProcess.exec(
+      `bit import seamonster-studios.react/${scope}/${item} ${options}`,
+      (error) => {
+        error ? console.error(error) : console.log("success")
+      },
+    )
+    break
+  case "export":
+    childProcess.exec(
+      `bit tag ${scope}/${item} && bit export seamonster-studios.react ${scope}/${item} ${options}`,
+      (error) => {
+        error ? console.error(error) : console.log("success")
+      },
+    )
     break
   default:
-    console.error('Woops! command provided wasn\'t found in package.sms.bit.js')
+    console.error("Woops! command provided wasn't found in package.sms.bit.js")
     break
 }
-
