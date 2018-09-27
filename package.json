@@ -12,14 +12,11 @@
     "start": "concurrently --kill-others-on-fail \"npm run start:lambda\" \"npm run start:rs\"",
     "typecheck": "flow-watch",
     "test": "jest --watch",
-    "export": "bit tag --all && bit export seamonster-studios.react",
-    "include": "yarn run include:components && yarn run include:utils",
-    "include:components": "bit add src/components/* -t 'src/__tests__/{PARENT}.spec.js'",
-    "include:utils": "bit add src/utils/* -t 'src/__tests__/{PARENT}.spec.js'",
-    "add:component": "node package.sms.bit.js add components",
-    "add:util": "node package.sms.bit.js add utils",
-    "import:component": "node package.sms.bit.js import components",
-    "import:util": "node package.sms.bit.js import utils"
+    "ss:tag": "node package.sms.bit.js tag",
+    "ss:add": "node package.sms.bit.js yarn-add",
+    "ss:watch": "node package.sms.bit.js bit-add",
+    "ss:import":"node package.sms.bit.js import",
+    "ss:export":"node package.sms.bit.js export"
   },
   "prettier": {
     "semi": false,
