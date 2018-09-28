@@ -1,56 +1,58 @@
-import React, { Component } from 'react'
-import dotenv from 'dotenv'
+import React, { Component } from "react"
+import dotenv from "dotenv"
+import PropTypes from "prop-types"
 //
 // import { getRoutesWithData } from './src/config/routes'
 
 dotenv.config()
 
 export default {
-  plugins: ['react-static-plugin-emotion'],
+  plugins: ["react-static-plugin-emotion"],
   siteRoot: process.env.SITE_ROOT,
   getSiteData: async () => ({
-    title: 'Site Title',
+    title: "Site Title",
   }),
   getRoutes: async () => [
     // ...(await getRoutesWithData()),
     {
-      path: '/',
-      component: 'src/screens/Home',
+      path: "/",
+      component: "src/screens/Home",
     },
     {
-      path: '404',
-      component: 'src/screens/NotFound',
+      path: "404",
+      component: "src/screens/NotFound",
     },
   ],
   webpack: (config, { stage }) => {
-    if (stage === 'prod') {
-      config.entry = ['babel-polyfill', config.entry]
-    } else if (stage === 'dev') {
-      config.entry = ['babel-polyfill', ...config.entry]
+    if (stage === "prod") {
+      config.entry = ["babel-polyfill", config.entry]
+    } else if (stage === "dev") {
+      config.entry = ["babel-polyfill", ...config.entry]
     }
     config.module.rules.push({
       test: /\.jsx$/,
       exclude: /(node_modules)/,
       use: {
-        loader: 'babel-loader',
+        loader: "babel-loader",
       },
     })
   },
   devServer: {
     proxy: {
-      '/.netlify/functions': {
-        target: 'http://localhost:9000',
-        pathRewrite: { '^/\\.netlify/functions': '' },
+      "/.netlify/functions": {
+        target: "http://localhost:9000",
+        pathRewrite: { "^/\\.netlify/functions": "" },
       },
     },
   },
-  Document: class CustomHtml extends Component<{
-    Html: any,
-    Head: any,
-    Body: any,
-    children: any,
-    renderMeta: any,
-  }> {
+  Document: class CustomHtml extends Component {
+    static propTypes = {
+      Html: PropTypes.node.isRequired,
+      Head: PropTypes.node.isRequired,
+      Body: PropTypes.node.isRequired,
+      children: PropTypes.node.isRequired,
+      renderMeta: PropTypes.node.isRequired,
+    }
     render() {
       const { Html, Head, Body, children, renderMeta } = this.props
 
