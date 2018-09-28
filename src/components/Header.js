@@ -1,18 +1,10 @@
-// @flow
-import * as React from 'react'
-import { tRouteProps } from "../types"
-import {css} from 'react-emotion'
+import * as React from "react"
+import { css } from "react-emotion"
+import PropTypes from "prop-types"
 
-type tHeader = {
-  routeProps: tRouteProps,
-}
-
-export class Header extends React.PureComponent<tHeader> {
+export class Header extends React.PureComponent {
+  static propTypes = {}
   render() {
-    return (
-      <header className={css``}>
-        This is a header
-      </header>
-    );
+    return <header className={css``}>This is a header</header>
   }
 }

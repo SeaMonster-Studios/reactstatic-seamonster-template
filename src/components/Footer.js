@@ -1,13 +1,9 @@
-// @flow
 import React from "react"
-import { tRouteProps } from "../types"
+import PropTypes from "prop-types"
 import { css } from "react-emotion"
 
-type tFooter = {
-  routeProps: tRouteProps,
-}
-
-export class Footer extends React.PureComponent<tFooter> {
+export class Footer extends React.PureComponent {
+  static propTypes = {}
   render() {
     return <footer className={css``}>This is a footer</footer>
   }

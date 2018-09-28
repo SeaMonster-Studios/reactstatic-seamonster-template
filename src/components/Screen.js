@@ -1,20 +1,18 @@
-// @flow
 import * as React from "react"
 import { hot } from "react-hot-loader"
 import { RouteData } from "react-static"
 import { Header } from "./Header"
 import { Footer } from "./Footer"
-import { tRouteProps } from "../types"
+import PropTypes from "prop-types"
 
-type tScreen = {
-  children: (routeProps: tRouteProps) => React.Node,
-}
-
-class ScreenInner extends React.PureComponent<tScreen> {
+class ScreenInner extends React.PureComponent {
+  static propTypes = {
+    children: PropTypes.node.isRequired,
+  }
   render() {
     return (
       <RouteData>
-        {(routeProps: tRouteProps) => (
+        {(routeProps) => (
           <>
             <Header routeProps={routeProps} />
             <main>{this.props.children(routeProps)}</main>

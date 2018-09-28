@@ -1,9 +1,10 @@
-// @flow
 import * as React from "react"
 import { Screen } from "../components/Screen"
 import { css } from "react-emotion"
+import PropTypes from "prop-types"
 
-export default class NotFound extends React.PureComponent<{}> {
+export default class NotFound extends React.PureComponent {
+  static propTypes = {}
   render() {
     return (
       <Screen
@@ -35,4 +36,3 @@ export default class NotFound extends React.PureComponent<{}> {
     )
   }
 }
-
