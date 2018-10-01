@@ -11,12 +11,12 @@
     "build:lambda": "netlify-lambda build src/lambda",
     "start": "concurrently --kill-others-on-fail \"npm run start:lambda\" \"npm run start:rs\"",
     "test": "jest --watch",
-    "ss:tag": "node package.sms.js tag",
-    "ss:add": "node package.sms.js yarn-add",
-    "ss:watch": "node package.sms.js-add",
-    "ss:import": "node package.sms.js import",
-    "ss:remove": "node package.sms.bit.js remove",
-    "ss:export": "node package.sms.js export"
+    "ss:tag": "node package.ss.js tag",
+    "ss:add": "node package.ss.js yarn-add",
+    "ss:watch": "node package.ss.js-add",
+    "ss:import": "node package.ss.js import",
+    "ss:remove": "node package.ss.bit.js remove",
+    "ss:export": "node package.ss.js export"
   },
   "prettier": {
     "semi": false,
