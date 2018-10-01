@@ -57,6 +57,16 @@ switch (command) {
       },
     )
     break
+    // TODO: This currently won't work b/c Bit always asks for verification that you want to remove the component.
+  // Figure out how to work around this (with using confirmation)
+  // case "remove":
+  //   childProcess.exec(
+  //     `bit remove seamonster-studios.react ${scope}/${item} ${options}`,
+  //     (error) => {
+  //       error ? console.error(error) : console.log("success")
+  //     },
+  //   )
+  //   break
   default:
     console.error("Woops! command provided wasn't found in package.sms.bit.js")
     break
