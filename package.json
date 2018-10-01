@@ -15,6 +15,7 @@
     "ss:add": "node package.sms.js yarn-add",
     "ss:watch": "node package.sms.js-add",
     "ss:import": "node package.sms.js import",
+    "ss:remove": "node package.sms.bit.js remove",
     "ss:export": "node package.sms.js export"
   },
   "prettier": {
