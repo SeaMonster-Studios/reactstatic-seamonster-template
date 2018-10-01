@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start:rs": "dotenv react-static start",
-    "build": "dotenv react-static build",
+    "build": "yarn build:lambda && dotenv react-static build",
     "serve": "serve dist -p 3100",
     "start:lambda": "netlify-lambda serve src/lambda",
     "build:lambda": "netlify-lambda build src/lambda",
